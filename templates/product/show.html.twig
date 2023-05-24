@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}  {{ app_product.name }} {% endblock %}
+
+{% block content %}
+
+	<div class="row">
+    <div class="col-md-4">
+        <img src="{{ asset('uploads/' ~ app_product.illustration) }}" alt="{{ app_product.name }}" class="img-fluid">
+    </div>
+	<div class="col-md-8">
+
+		<h3>{{ app_product.name }}</h3>
+		<p>{{app_product.description}}<p>
+		{{ (app_product.price / 100)|number_format('2') }}€
+		<hr>
+	
+
+
+</div>
+</div>
+
+
+{% endblock %}
