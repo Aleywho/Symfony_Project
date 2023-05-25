@@ -1,24 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}  {{ app_product.name }} {% endblock %}
+{% block title %}{{ app_product.name }}{% endblock %}
 
 {% block content %}
-
 	<div class="row">
-    <div class="col-md-4">
-        <img src="{{ asset('uploads/' ~ app_product.illustration) }}" alt="{{ app_product.name }}" class="img-fluid">
-    </div>
-	<div class="col-md-8">
-
-		<h3>{{ app_product.name }}</h3>
-		<p>{{app_product.description}}<p>
-		{{ (app_product.price / 100)|number_format('2') }}€
-		<hr>
-	
-
-
-</div>
-</div>
-
-
+		<div class="col-md-4">
+			<img src="{{ asset('uploads/' ~ app_product.illustration) }}" alt="{{ app_product.name }}" class="img-fluid">
+		</div>
+		<div class="col-md-8">
+			<h3>{{ app_product.name }}</h3>
+			<p>{{ app_product.description }}</p>
+			<span class="product-page-price">{{ (app_product.price / 100)|number_format('2') }}€</span>
+			<hr>
+			<a href="{{ path('app_add_to_cart', {'id': app_product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+		</div>
+	</div>
 {% endblock %}
